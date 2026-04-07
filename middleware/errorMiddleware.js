@@ -1,9 +1,16 @@
-const errorMiddleware = (err, req, res, next) => {
-  err.statusCode = err.statusCode || 500;
-  err.status = err.status || "fail";
+const logger = require("../config/logger");
 
-  res.status(err.statusCode).json({
-    status: err.status,
+const errorMiddleware = (err, req, res, next) => {
+  // log error
+  logger.error({
+    message: err.message,
+    status: err.statusCode || 500,
+    url: req.originalUrl,
+    method: req.method,
+  });
+
+  res.status(err.statusCode || 500).json({
+    status: "fail",
     message: err.message,
   });
 };
