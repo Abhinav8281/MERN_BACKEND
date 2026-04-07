@@ -1,0 +1,3 @@
+{"level":"error","message":"Unexpected token '\"', \"\"\\n  \"\" is not valid JSON","method":"GET","status":400,"url":"/api/invalid-route"}
+{"level":"error","message":"Route /api/invalid-route not found","method":"GET","status":404,"url":"/api/invalid-route"}
+{"level":"error","message":"Route /api/invalid-route not found","method":"GET","status":404,"url":"/api/invalid-route"}
