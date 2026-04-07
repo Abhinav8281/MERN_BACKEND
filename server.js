@@ -12,6 +12,8 @@ app.use(express.json());
 
 app.use("/api/auth", require("./routes/authRoutes"));
 
+app.use("/api/tasks", require("./routes/taskRoutes"));
+
 // ❌ Invalid Route Handler
 app.use( (req, res, next) => {
   next(new AppError(`Route ${req.originalUrl} not found`, 404));
