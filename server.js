@@ -6,13 +6,29 @@ const AppError = require("./utils/AppError");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
+const helmet = require("helmet");
 
 
 dotenv.config();
 connectDB();
 
+
+
+const rateLimit = require("express-rate-limit");
+
+// ✅ Limit login attempts
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // max 5 requests
+  message: {
+    status: "fail",
+    message: "Too many login attempts. Try again later.",
+  },
+});
+
 const app = express();
 app.use(express.json());
+app.use(helmet());
 
 app.use("/api/auth", require("./routes/authRoutes"));
 
