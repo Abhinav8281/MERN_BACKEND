@@ -7,4 +7,12 @@ const router = express.Router();
 router.get("/", authMiddleware, getTasks);
 router.post("/", authMiddleware, createTask);
 
+router.get("/", authMiddleware, (req, res) => {
+  res.json({
+    message: "Secure tasks data",
+    user: req.user,
+  });
+});
+
+
 module.exports = router;
