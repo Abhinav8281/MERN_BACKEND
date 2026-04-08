@@ -7,6 +7,8 @@ const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
 const helmet = require("helmet");
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
 
 
 dotenv.config();
@@ -29,6 +31,9 @@ const authLimiter = rateLimit({
 const app = express();
 app.use(express.json());
 app.use(helmet());
+
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", require("./routes/authRoutes"));
 

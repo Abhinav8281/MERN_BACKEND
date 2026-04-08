@@ -1,0 +1,3 @@
+{"level":"error","message":"Illegal arguments: number, number","method":"POST","status":500,"url":"/api/auth/register"}
+{"level":"error","message":"User already exists","method":"POST","status":400,"url":"/api/auth/register"}
+{"level":"error","message":"User already exists","method":"POST","status":400,"url":"/api/auth/register"}

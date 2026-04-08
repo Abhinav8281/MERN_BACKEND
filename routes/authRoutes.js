@@ -23,3 +23,41 @@ router.post("/register", registerValidator,authLimiter,  validate, register);
 router.post("/login", loginValidator, authLimiter, validate, login);
 
 module.exports = router;
+
+
+/**
+ * @swagger
+ * /api/auth/register:
+ *   post:
+ *     summary: Register User
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             name: Abhi
+ *             email: abhi@gmail.com
+ *             password: "123456"
+ *     responses:
+ *       201:
+ *         description: User registered
+ */
+
+/**
+ * @swagger
+ * /api/auth/login:
+ *   post:
+ *     summary: Login User
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             email: abhi@gmail.com
+ *             password: "123456"
+ *     responses:
+ *       200:
+ *         description: Login successful
+ */
